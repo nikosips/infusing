@@ -153,10 +153,20 @@ You will need to point the config fields below at your local paths:
 
 ## Pretrained checkpoints and features
 
-The helper script [download_data.sh](download_data.sh) downloads:
+The helper script [download_data.sh](download_data.sh) downloads the public assets from:
 
-- SigLIP ViT-B/16 checkpoint to `data/models/siglip/vit_b16.npy`
-- TIPS ViT-B/16 checkpoint to `data/models/tips/vit_b16.npy`
+```text
+https://login.rci.cvut.cz/~ypsilnik/infusing_data
+```
+
+and places them into the repository `data/` directory.
+
+It provides:
+
+- model checkpoints under `data/models/`
+- dataset metadata JSON files under `data/info_files/`
+- public ArrayRecord files under `data/array_records/`
+- text-image evaluation assets under `data/text_image/`
 
 Run:
 
@@ -164,10 +174,9 @@ Run:
 bash download_data.sh
 ```
 
-The script also creates placeholder directories for pretrained features:
+The script still does not download:
 
-- `data/features/siglip`
-- `data/features/tips`
+- Precomputed descriptor features
 
 If you use pretrained descriptor distillation or text-evaluation features, make sure those assets exist and update the config paths accordingly.
 
