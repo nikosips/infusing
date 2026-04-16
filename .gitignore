@@ -1,0 +1,15 @@
+__pycache__/
+data
+wandb
+results
+logs
+local_runs
+*.out
+*.log
+*.csv
+*.npy
+*.npz
+*.jpg
+*.jpeg
+*.png
+.codex
