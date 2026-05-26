@@ -13,3 +13,4 @@ local_runs
 *.jpeg
 *.png
 .codex
+scenic_venv/

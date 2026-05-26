@@ -40,7 +40,13 @@ python -m pip install grain wandb ipdb scikit-learn tensorflow_text
 rm -rf "${REPO_ROOT}/scenic"
 
 clone_or_update_repo "https://github.com/google-research/big_vision.git" "${PARENT_DIR}/big_vision"
-python -m pip install -r "${PARENT_DIR}/big_vision/requirements.txt"
+python - <<PY
+import site
+from pathlib import Path
+
+site_packages = Path(site.getsitepackages()[0])
+(site_packages / "big_vision_local.pth").write_text("${PARENT_DIR}/big_vision\n")
+PY
 
 clone_or_update_repo "https://github.com/google-deepmind/tips.git" "${PARENT_DIR}/tips"
 
